@@ -73,11 +73,18 @@
         border-radius: 3px;
         cursor: pointer;
 
+        &.completed {
+          background-color: var(--gray-four);
+        }
+
         &__check {
           width: 22px;
           height: 22px;
           background-color: var(--white-one);
           margin-left: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         &__title {

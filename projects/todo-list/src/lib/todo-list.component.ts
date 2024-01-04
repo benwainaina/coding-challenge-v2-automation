@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor, NgTemplateOutlet } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
 import { ITask } from 'projects/state-manager/tasks/interfaces';
@@ -13,7 +13,7 @@ import { ITaskInput } from './interfaces';
   templateUrl: 'todo-list.component.html',
   styleUrls: ['todo-list.component.scss'],
   standalone: true,
-  imports: [NgFor, NgTemplateOutlet, AsyncPipe],
+  imports: [NgFor, NgTemplateOutlet, AsyncPipe, NgIf],
 })
 export class TodoListComponent {
   public taskInputs: Array<ITaskInput> = [];

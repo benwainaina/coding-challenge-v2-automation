@@ -15,7 +15,7 @@ const initialState: IStoreTasks = {
       content: '23',
       id: 'd6621d64-4868-42ac-be53-198fccb2ec00',
       identifier: 'wrapper__form__task__input__',
-      completed: false,
+      completed: true,
     },
     {
       content: '45',
