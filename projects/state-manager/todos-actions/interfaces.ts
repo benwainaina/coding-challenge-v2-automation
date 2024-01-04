@@ -2,8 +2,8 @@ export const TasksActionsFeatureKey = 'tasksActions';
 
 export type IActionSteps =
   | 'forLoop'
-  | 'childAction'
-  | 'promptChildAction'
+  | 'selectChildAction'
+  | 'childActionInputPrompt'
   | 'runBot';
 
 export interface IStoreTaskActions {
