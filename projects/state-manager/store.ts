@@ -1,6 +1,5 @@
 import { ITask } from './tasks/interfaces';
-
-export interface IStoreActions {}
+import { IStoreTaskActions } from './todos-actions/interfaces';
 
 export interface IStoreTasks {
   tasks: Array<ITask>;
@@ -9,7 +8,7 @@ export interface IStoreTasks {
 }
 
 export interface IStore {
-  actions: IStoreActions;
+  actions: IStoreTaskActions;
   tasks: IStoreTasks;
 }
 

@@ -7,7 +7,7 @@ import { TodoListComponent } from 'projects/todo-list/src/public-api';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [TodoListComponent],
+  imports: [TodoListComponent, ActionsComponent],
 })
 export class AppComponent {
   title = 'coding-challenge-v2-automation';

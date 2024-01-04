@@ -1,8 +1,8 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { IStore, IStoreTasks } from '../store';
-import { ITasksFeatureKey } from './interfaces';
+import { TasksFeatureKey } from './interfaces';
 
-const tasksFeature = createFeatureSelector<IStoreTasks>(ITasksFeatureKey);
+const tasksFeature = createFeatureSelector<IStoreTasks>(TasksFeatureKey);
 
 export const tasksSelector = createSelector(
   tasksFeature,

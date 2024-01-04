@@ -1,4 +1,4 @@
-export const ITasksFeatureKey = 'tasks';
+export const TasksFeatureKey = 'tasks';
 
 export interface ITask {
   content: string;
