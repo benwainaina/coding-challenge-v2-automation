@@ -1,8 +1,8 @@
-import { ITodosFeatureKey } from './todos/interfaces';
-import { todosReducers } from './todos/reducers';
+import { ITasksFeatureKey } from './tasks/interfaces';
+import { tasksReducers } from './tasks/reducers';
 
 export const reducers: {
   [feature: string]: any;
 } = {
-  [ITodosFeatureKey]: todosReducers,
+  [ITasksFeatureKey]: tasksReducers,
 };

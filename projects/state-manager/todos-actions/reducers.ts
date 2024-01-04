@@ -5,8 +5,8 @@ import { produce } from 'immer';
 
 const initialState: IStore = {
   actions: {},
-  todos: {
-    todos: [],
+  tasks: {
+    tasks: [],
   },
 };
 

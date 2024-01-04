@@ -48,12 +48,58 @@
     }
   }
   &__tasks {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+
     &__title {
       font-family: Open Sans;
       font-size: 15px;
       font-weight: 400;
       line-height: 20px;
       letter-spacing: 0em;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+
+      &__task {
+        background-color: var(--blue-one);
+        display: flex;
+        column-gap: 14px;
+        align-items: center;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &__check {
+          width: 22px;
+          height: 22px;
+          background-color: var(--white-one);
+          margin-left: 10px;
+        }
+
+        &__title {
+          flex: 1;
+          font-family: Open Sans;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 20px;
+          letter-spacing: 0em;
+          text-align: left;
+        }
+
+        &__delete {
+          width: 44px;
+          height: 41px;
+          background-color: var(--red-one);
+          border-radius: 0px 3px 3px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
   }
 }

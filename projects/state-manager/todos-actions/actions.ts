@@ -4,7 +4,7 @@ import { EActionToPerform } from '../store';
 
 export const ActionRunBot = createAction(Actions.IDActionRunBot);
 
-export const ActionSetActionToPerformOnTodos = createAction(
-  Actions.IDActionSetActionToPerformOnTodos,
+export const ActionSetActionToPerformOnTasks = createAction(
+  Actions.IDActionSetActionToPerformOnTasks,
   props<{ action: EActionToPerform }>()
 );

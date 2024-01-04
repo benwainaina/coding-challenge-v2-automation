@@ -1,5 +1,5 @@
-export interface ITodoInput {
+export interface ITaskInput {
   type: string;
 }
 
-export interface ITodoAction {}
+export interface ITaskAction {}

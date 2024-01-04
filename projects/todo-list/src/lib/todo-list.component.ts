@@ -1,12 +1,12 @@
 import { AsyncPipe, NgFor, NgTemplateOutlet } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
-import { ITodo } from 'projects/state-manager/todos/interfaces';
+import { ITask } from 'projects/state-manager/tasks/interfaces';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ActionAddTodos } from 'projects/state-manager/todos/actions';
-import { todosSelector } from 'projects/state-manager/todos/selectors';
-import { ITodoInput } from './interfaces';
+import { ActionAddTasks } from 'projects/state-manager/tasks/actions';
+import { tasksSelector } from 'projects/state-manager/tasks/selectors';
+import { ITaskInput } from './interfaces';
 
 @Component({
   selector: 'lib-todo-list',
@@ -16,40 +16,42 @@ import { ITodoInput } from './interfaces';
   imports: [NgFor, NgTemplateOutlet, AsyncPipe],
 })
 export class TodoListComponent {
-  public todoInputs: Array<ITodoInput> = [];
+  public taskInputs: Array<ITaskInput> = [];
 
-  public assetsPath: string = 'assets/icons/todo-list/';
+  public assetsPath: string = 'assets/icons/tasks/';
 
   private _store: Store = inject(Store);
 
-  public todos$: Observable<Array<ITodo>>;
+  public tasks$: Observable<Array<ITask>>;
 
   constructor() {
     const randomTypes = ['text', 'number'];
-    this.todoInputs = new Array(3).fill(0).map((inputField) => ({
+    this.taskInputs = new Array(3).fill(0).map((inputField) => ({
       type: randomTypes[Math.round(Math.random() * randomTypes.length)],
     }));
-    this.todos$ = this._store.select(todosSelector);
+    this.tasks$ = this._store.select(tasksSelector);
   }
 
-  public saveTodos($event: any): void {
+  public saveTasks($event: any): void {
     const targetElement = $event.target;
     const inputField = targetElement
-      .closest('div.wrapper__form__todo')
+      .closest('div.wrapper__form__task')
       .getElementsByTagName('input')[0];
     if (inputField) {
       const textContent = inputField.value;
       if (!textContent) {
         alert('Field input cannot be blank');
       } else {
-        const todo: ITodo = {
-          content: textContent,
-          id: uuidv4(),
-          identifier: inputField.className,
-        };
         this._store.dispatch(
-          ActionAddTodos({
-            todos: [todo],
+          ActionAddTasks({
+            tasks: [
+              {
+                content: textContent,
+                id: uuidv4(),
+                identifier: inputField.className,
+                completed: false,
+              },
+            ],
           })
         );
       }

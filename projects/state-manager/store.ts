@@ -1,16 +1,16 @@
-import { ITodos } from './todos/interfaces';
+import { ITask } from './tasks/interfaces';
 
 export interface IStoreActions {}
 
-export interface IStoreTodos {
-  todos: Array<ITodos>;
-  markedTodossIdentifier?: string;
-  todosMetaData?: any;
+export interface IStoreTasks {
+  tasks: Array<ITask>;
+  markedTasksIdentifier?: string;
+  tasksMetaData?: any;
 }
 
 export interface IStore {
   actions: IStoreActions;
-  todos: IStoreTodos;
+  tasks: IStoreTasks;
 }
 
 export enum EActionToPerform {
