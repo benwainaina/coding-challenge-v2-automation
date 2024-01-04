@@ -1,7 +1,9 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { StoreModule } from '@ngrx/store';
+import { importProvidersFrom } from '@angular/core';
+import { reducers } from 'projects/state-manager/reducers';
 
-import { AppModule } from './app/app.module';
-
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [importProvidersFrom(StoreModule.forRoot(reducers, {}))],
+});

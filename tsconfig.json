@@ -19,6 +19,14 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "paths": {
+      "actions": [
+        "dist/actions"
+      ],
+      "todo-list": [
+        "dist/todo-list"
+      ]
+    },
     "lib": [
       "ES2022",
       "dom"
