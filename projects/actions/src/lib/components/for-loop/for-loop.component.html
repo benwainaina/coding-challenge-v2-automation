@@ -10,12 +10,13 @@
     ></ng-container>
     <ng-template #elementSelectedTemplate>
       Great! You selected
-      {{ (tasksMetadataSelector$ | async)?.selected }} elements, we predicted
-      {{ (tasksMetadataSelector$ | async)?.predicted }} additional element. In
-      total
+      {{ (tasksMetadataSelector$ | async)?.selected?.length }} elements, we
+      predicted
+      {{ (tasksMetadataSelector$ | async)?.predicted?.length }} additional
+      element. In total
       {{
-        (tasksMetadataSelector$ | async)?.selected +
-          (tasksMetadataSelector$ | async)?.predicted
+        (tasksMetadataSelector$ | async)?.selected?.length +
+          (tasksMetadataSelector$ | async)?.predicted?.length
       }}
       elements are selected
     </ng-template>

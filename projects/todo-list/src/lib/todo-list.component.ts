@@ -33,6 +33,10 @@ export class TodoListComponent {
 
   public identifier$: Observable<string | undefined>;
 
+  private _selectedElements: Array<HTMLElement> = [];
+
+  private _predictedElements: Array<HTMLElement> = [];
+
   constructor() {
     const randomTypes = ['text', 'number'];
     this.taskInputs = new Array(3).fill(0).map((inputField) => ({
@@ -71,19 +75,31 @@ export class TodoListComponent {
   }
 
   public setMarkedTaskIdentifier(
+    $event: any,
     clickedElement: ITaskInput,
     identifier: string
   ): void {
+    const elementRef: HTMLElement = $event.target;
     if (!clickedElement.predicted) {
       clickedElement.selected = true;
+      this._selectedElements.push(elementRef);
     }
     const selectedInputs = this.taskInputs.filter(
       (task) => task.selected
     ).length;
     if (selectedInputs === 2) {
       this.taskInputs.forEach((taskInput) => {
-        if (!taskInput.selected) {
+        if (!taskInput.selected && !taskInput.predicted) {
           taskInput.predicted = true;
+          const previousSibling = elementRef.parentElement
+            ?.previousSibling as HTMLElement;
+          const nextSibling = elementRef.parentElement
+            ?.nextElementSibling as HTMLElement;
+          if (this._predictedElements.includes(previousSibling)) {
+            this._predictedElements.push(nextSibling);
+          } else {
+            this._predictedElements.push(previousSibling);
+          }
         }
       });
     }
@@ -91,10 +107,20 @@ export class TodoListComponent {
     this._store.dispatch(
       ActionSetMetadataToBeUsedToPerformAction({
         metadata: {
-          selected: selectedInputs,
-          predicted: this.taskInputs.filter((task) => task.predicted).length,
+          selected: this._returnShallowCopy(this._selectedElements),
+          predicted: this._returnShallowCopy(this._predictedElements),
+          type: 'input',
         },
       })
     );
+  }
+
+  private _returnShallowCopy(objectRef: any): any {
+    return JSON.parse(JSON.stringify(objectRef));
+  }
+
+  private _clearSelections(): void {
+    this._selectedElements = [];
+    this._predictedElements = [];
   }
 }
