@@ -35,6 +35,14 @@
         padding: 10px, 16px, 11px, 16px;
         border-radius: 3px;
         border: 1px;
+
+        &.selected {
+          border: 2px solid var(--green-one);
+        }
+
+        &.predicted {
+          border: 2px solid var(--blue-three);
+        }
       }
 
       &__save {

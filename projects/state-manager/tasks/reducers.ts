@@ -33,6 +33,18 @@ const reducer = createReducer(
       ...draft,
       tasks: [...draft.tasks, ...payload.tasks],
     }))
+  ),
+  on(Actions.ActionSetMarkedTasksIdentifier, (state, payload) =>
+    produce(state, (draft) => ({
+      ...draft,
+      markedTasksIdentifier: payload.identifier,
+    }))
+  ),
+  on(Actions.ActionSetMetadataToBeUsedToPerformAction, (state, payload) =>
+    produce(state, (draft) => ({
+      ...draft,
+      tasksMetaData: payload.metadata,
+    }))
   )
 );
 export const tasksReducers = (state: IStoreTasks, action: Action) =>

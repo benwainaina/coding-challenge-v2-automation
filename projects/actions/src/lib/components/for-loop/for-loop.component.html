@@ -1,5 +1,25 @@
 <div class="wrapper">
   <lib-task-actions-title [title]="'Step 1: For loop'"></lib-task-actions-title>
-  <div class="wrapper__content">content</div>
+  <div class="wrapper__content">
+    <ng-container
+      *ngTemplateOutlet="
+        (tasksMetadataSelector$ | async)?.selected
+          ? elementSelectedTemplate
+          : noElementSelectedTemplate
+      "
+    ></ng-container>
+    <ng-template #elementSelectedTemplate>
+      Great! You selected
+      {{ (tasksMetadataSelector$ | async)?.selected }} elements, we predicted
+      {{ (tasksMetadataSelector$ | async)?.predicted }} additional element. In
+      total
+      {{
+        (tasksMetadataSelector$ | async)?.selected +
+          (tasksMetadataSelector$ | async)?.predicted
+      }}
+      elements are selected
+    </ng-template>
+    <ng-template #noElementSelectedTemplate>Select An Element</ng-template>
+  </div>
   <div class="wrapper__footer">footer</div>
 </div>

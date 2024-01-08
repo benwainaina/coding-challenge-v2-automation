@@ -3,10 +3,27 @@
     <span>Your tasks</span>
   </div>
   <div class="wrapper__form">
-    <div *ngFor="let taskInput of taskInputs" class="wrapper__form__task">
+    <div
+      *ngFor="let taskInput of taskInputs; let idx = index"
+      class="wrapper__form__task"
+    >
       <input
-        class="wrapper__form__task__input__{{ taskInput.type }}"
+        class="wrapper__form__task__input__{{ taskInput.type }} {{
+          (identifier$ | async)
+            ? taskInput.selected
+              ? 'selected'
+              : taskInput.predicted
+              ? 'predicted'
+              : ''
+            : ''
+        }}"
         type="{{ taskInput.type }}"
+        (click)="
+          setMarkedTaskIdentifier(
+            taskInput,
+            'wrapper__form__task__input__' + taskInput.type
+          )
+        "
       />
       <div (click)="saveTasks($event)" class="wrapper__form__task__save">
         <img src="{{ assetsPath + 'add.svg' }}" alt="" />
