@@ -2,6 +2,10 @@ export const IDActionAddTasks = '[Task List Component] add tasks';
 export const IDActionDeleteTasks = '[Task List Component] delete a task';
 export const IDActionMarksTaskAsComplete =
   '[Task List Component] mark task as complete';
+export const IDActionMarksTaskAsSelected =
+  '[Task List Component] mark task as selected';
+export const IDActionMarksTaskAsPredicted =
+  '[Task List Component] mark task as predicted';
 export const IDActionSetMarkedTasksIdentifier =
   '[Task List Component] set marked tasks identifier, for example type, id';
 export const IDActionSetMetadataToBeUsedToPerformAction =

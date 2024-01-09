@@ -18,3 +18,8 @@ export const tasksMetadataSelector = createSelector(
   tasksFeature,
   (state) => state.tasksMetaData
 );
+
+export const tasksMetadataTypeSelector = createSelector(
+  tasksMetadataSelector,
+  (state) => state?.type || ''
+);

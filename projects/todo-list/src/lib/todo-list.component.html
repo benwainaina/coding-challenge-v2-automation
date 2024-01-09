@@ -19,7 +19,7 @@
         }}"
         type="{{ taskInput.type }}"
         (click)="
-          setMarkedTaskIdentifier(
+          setMarkedInputTaskIdentifier(
             $event,
             taskInput,
             'wrapper__form__task__input__' + taskInput.type
@@ -50,7 +50,16 @@
           *ngFor="let task of tasks$ | async"
           class="wrapper__tasks__list__task {{
             task.completed ? 'completed' : ''
+          }} {{
+            (identifier$ | async)
+              ? task.selected
+                ? 'selected'
+                : task.predicted
+                ? 'predicted'
+                : ''
+              : ''
           }}"
+          (click)="setElementIdentifier($event, task, task.identifier)"
         >
           <div class="wrapper__tasks__list__task__check">
             <img

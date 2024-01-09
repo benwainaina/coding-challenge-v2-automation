@@ -18,6 +18,16 @@ export const ActionMarkTaskAsComplete = createAction(
   props<{ tasks: Array<string> }>()
 );
 
+export const ActionMarkTaskAsSelected = createAction(
+  Actions.IDActionMarksTaskAsSelected,
+  props<{ taskId: string }>()
+);
+
+export const ActionMarkTaskAsPredicted = createAction(
+  Actions.IDActionMarksTaskAsPredicted,
+  props<{ taskId: string }>()
+);
+
 export const ActionSetMarkedTasksIdentifier = createAction(
   Actions.IDActionSetMarkedTasksIdentifier,
   props<{ identifier: string }>()
