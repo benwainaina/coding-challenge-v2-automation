@@ -6,7 +6,7 @@ import { IActionSteps } from './interfaces';
 export const ActionRunBot = createAction(Actions.IDActionRunBot);
 
 export const ActionSetActionToPerformOnTasks = createAction(
-  Actions.IDActionSetActionToPerformOnTasks,
+  Actions.IDActionSetChildActionToPerformOnTasks,
   props<{ action: EActionToPerform }>()
 );
 

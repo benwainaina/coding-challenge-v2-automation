@@ -25,6 +25,7 @@ export class ActionsComponent {
 
   private _decideOnActionStep(): void {
     this._store.select(actionsStepSelector).subscribe((step) => {
+      console.log('step', step);
       if (this._stepsOutlet) {
         this._stepsOutlet.clear();
         this._stepsOutlet.createComponent(TASK_ACTIONS_MAPPING[step]);

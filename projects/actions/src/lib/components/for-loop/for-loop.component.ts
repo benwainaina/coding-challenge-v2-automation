@@ -4,6 +4,7 @@ import { TaskActionsTitleComponent } from '../../shared/task-actions-title/task-
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { tasksMetadataSelector } from 'projects/state-manager/tasks/selectors';
+import { ActionSetActionStep } from 'projects/state-manager/todos-actions/actions';
 
 @Component({
   selector: 'lib-for-loop',
@@ -19,5 +20,11 @@ export class ForLoopComponent {
 
   constructor() {
     this.tasksMetadataSelector$ = this._store.select(tasksMetadataSelector);
+  }
+
+  public resetSelections(): void {}
+
+  public saveSelections(): void {
+    this._store.dispatch(ActionSetActionStep({ step: 'selectChildAction' }));
   }
 }

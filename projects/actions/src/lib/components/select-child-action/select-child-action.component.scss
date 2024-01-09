@@ -1,0 +1,87 @@
+.wrapper {
+  width: 100%;
+  background-color: #0e17261a;
+  padding: 20px 16px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    row-gap: 12px;
+
+    &__title {
+      margin-top: 24px;
+      font-family: Nunito;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 16px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+
+    &__actions {
+      display: flex;
+      column-gap: 20px;
+
+      &__action {
+        width: 232px;
+        display: flex;
+        row-gap: 12px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        &.enabled {
+          background-color: var(--white-one);
+          border-radius: 6px;
+        }
+
+        &__icon {
+        }
+
+        &__label {
+          font-family: Nunito;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 16px;
+          letter-spacing: 0em;
+          text-align: center;
+        }
+
+        &__instruction {
+          font-family: Nunito;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 16px;
+          letter-spacing: 0em;
+          text-align: center;
+          color: var(--gray-five);
+        }
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    &__action {
+      margin-top: 12px;
+      cursor: pointer;
+      color: var(--white-one);
+      background-color: var(--blue-two);
+      padding: 14px 52px;
+      font-family: Nunito;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+      letter-spacing: 0.02em;
+      text-align: center;
+      border-radius: 8px;
+    }
+  }
+}

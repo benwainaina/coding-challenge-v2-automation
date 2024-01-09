@@ -1,5 +1,31 @@
 <div class="wrapper">
-  <div class="wrapper__header">header</div>
-  <div class="wrapper__content">content</div>
-  <div class="wrapper__footer">footer</div>
+  <lib-task-actions-title
+    [title]="'Step 2. Choose an child-action on each loop element'"
+  ></lib-task-actions-title>
+  <div class="wrapper__content">
+    <div class="wrapper__content__title">
+      Add action you want the bot to do on the page
+    </div>
+    <div class="wrapper__content__actions">
+      <div
+        *ngFor="let botAction of botActions"
+        class="wrapper__content__actions__action {{
+          botAction.enabled ? 'enabled' : ''
+        }}"
+      >
+        <div class="wrapper__content__actions__action__icon">
+          <img src="{{ botAction.icon }}" alt="" />
+        </div>
+        <div class="wrapper__content__actions__action__label">
+          {{ botAction.label }}
+        </div>
+        <div class="wrapper__content__actions__action__instruction">
+          {{ botAction.instructions }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper__footer">
+    <div class="wrapper__footer__action">Run Bot</div>
+  </div>
 </div>

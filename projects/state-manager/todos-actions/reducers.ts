@@ -4,7 +4,7 @@ import { produce } from 'immer';
 import { IStoreTaskActions } from './interfaces';
 
 const initialState: IStoreTaskActions = {
-  step: 'forLoop',
+  step: 'selectChildAction',
 };
 
 const reducer = createReducer(
@@ -12,6 +12,7 @@ const reducer = createReducer(
   on(Actions.ActionSetActionStep, (state, payload) =>
     produce(state, (draft) => ({
       ...draft,
+      step: payload.step,
     }))
   )
 );
